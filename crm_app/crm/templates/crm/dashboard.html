@@ -1,0 +1,69 @@
+{% extends "crm/base.html" %}
+
+{% block content %}
+
+    <h4>Bienvenido a MyCRM: {{user}} </h4>
+    <hr>
+
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_record' %}">
+        Crea un nuevo registro &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table-light table-hover">
+
+        <thead class="table light">
+
+
+        {% if records %}
+            <tr>
+                <th scope='col'>ID</th>
+                <th scope='col'>Nombre</th>
+                <th scope='col'>Email</th>
+                <th scope='col'>Teléfono</th>
+                <th scope='col'>Dirección</th>
+                <th scope='col'>Ciudad</th>
+                <th scope='col'>Provincia</th>
+                <th scope='col'>País</th>
+                <th scope='col'>Fecha</th>
+                <th scope='col'>Ver</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            
+
+            {% for record in records %}
+
+            <tr>
+                <td> {{record.id}} </td>
+                <td> {{record.first_name}} {{record.last_name}} </td>
+                <td> {{record.email}} </td>
+                <td> {{record.phone}} </td>
+                <td> {{record.address}} </td>
+                <td> {{record.city}} </td>
+                <td> {{record.province}} </td>
+                <td> {{record.country}} </td>
+                <td> {{record.creation_date}} </td>
+                <td><a class='btn btn-success btn-sm' href="{% url 'view_record' record.id %}"><i class="fa fa-eye" aria-hidden="true"></i>
+                </a></td>
+            </tr>
+
+            {% endfor %}
+
+            {% else %}
+            <h3>No existen registros.<h3>
+
+        {% endif %}
+        </tbody>
+
+    </table>
+
+    
+ 
+
+{% endblock content %}

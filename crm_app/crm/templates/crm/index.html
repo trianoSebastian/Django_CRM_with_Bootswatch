@@ -1,0 +1,19 @@
+{% extends "crm/base.html" %}
+
+{% block content %}
+
+    <body>
+        <br>
+        <br>
+        <div class="text-center">
+            <h1>MyCRM</h1>
+            <br>
+            <h2>El mejor CRM que vas a encontrar!</h2>
+            <hr>
+            <br>
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}">Crea tu cuenta &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> 
+            </a>
+        </div>
+    </body>
+
+{% endblock content %}
